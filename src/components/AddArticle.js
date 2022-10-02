@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
-// import firebase from 'firebase/app';
+import { toast }from 'react-toastify';
 import { collection, addDoc, Timestamp } from 'firebase/firestore';
 import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
+
 
 import { storage, db } from './../firebaseConfig.js';
 
@@ -56,15 +57,16 @@ export default function AddArticles() {
             title: formData.title,
             description: formData.description,
             imageUrl: url,
+            createdAt: Timestamp.now().toDate(),
           }
 
           )
             .then(() => {
-              alert("Article added successfully");
+              toast("Article added successfully", {type: "success"});
               setProgress(0);
             })
             .catch((err) => {
-              alert("Error adding article");
+              toast("Error adding article", {type: "error"});
             });
         });
       }
@@ -73,17 +75,17 @@ export default function AddArticles() {
 	
 	return (
 		<div className="createArticle">
-			<h2> Create Blog </h2>
+			<p style={{fontWeight: "bolder"}}> Create Blog </p>
 			<div>
-			<label>Title</label>
+			<p>Title</p>
 			<input type="text" name="title" className="" onChange={(e)=>handleChange(e)} value={formData.title}/>
 			</div>
 			<div>
-			<label>Description</label>
+			<p>Description</p>
 			<textarea name="description" className="" onChange={(e)=>handleChange(e)} value={formData.description}/>
 			</div>
 			<div>
-			<label>Image</label>
+			<p>Image</p>
 			<input type="file" name="image" accept="image/*" onChange={(e)=>handleImageChange(e)}/>
 			{
 				progress === 0 ? null : (

@@ -1,15 +1,32 @@
 .App {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  background-color: lightskyblue;
 }
-
+.flextry {
+  display: flex;
+  flex-wrap: wrap;
+}
 
 .article {
   display: flex;
   flex-direction: column;
-  border: 1px black solid;
+  border: whitesmoke solid 2px;
+  border-radius: 20px;
   background-color: lightblue;
+  width: 450px;
   margin-top: 3px;
   padding: 3px;
+}
+.createArticle {
+  display: flex;
+  flex-direction: column;
+  border: whitesmoke solid 2px;
+  border-radius: 20px;
+  height: 350px;
+}
+.NavBar {
+  border: whitesmoke solid 2px;
+  border-radius: 20px;
+  background-color: whitesmoke;
 }
