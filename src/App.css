@@ -29,4 +29,24 @@
   border: whitesmoke solid 2px;
   border-radius: 20px;
   background-color: whitesmoke;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.NavBar > div {
+  margin-left: auto;
+  margin-right: auto;
+}
+.navLink {
+  font-size: 1.5rem;
+  color: lightskyblue;
+  text-decoration: none;
+  font-weight: bold;
+}
+.Register > div {
+  color: white;
+}
+.Login > div {
+  color: white;
 }
