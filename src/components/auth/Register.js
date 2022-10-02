@@ -1,14 +1,32 @@
-import React,{ useState } from 'react';
-import {Link}  from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { toast }from 'react-toastify';
+import { Link, useNavigate } from "react-router-dom";
+import {
+  auth,
+  registerWithEmailAndPassword,
+  signInWithGoogle,
+} from "./../../firebaseConfig.js";
 
 export default function Register() {
 	const [name, setName] = useState("");
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
+	const [user, loading, error] = useAuthState(auth);
+	const navigate = useNavigate();
 
 	const handleSubmit =async()=> {
-
+		await registerWithEmailAndPassword(name, email, password);
+		if (!name || !email || password) {
+			toast("Please enter all info!", {type: "error"});
+		}
+		
 	}
+
+	useEffect(() => {
+		if (loading) return;
+		if (user) navigate("/createblog");
+	}, [user, loading]);
 
 	return (
 		<div className="Register">

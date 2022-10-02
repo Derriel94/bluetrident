@@ -15,10 +15,10 @@ function App() {
         <Routes>
           <Route path="/register" element ={<Register />}/>
           <Route path="/login" element={<Login />}/>
+          <Route path="/createblog" element={<AddArticle />}/>
           <Route path="/" element={
              <div className="flextry">
               <Articles />
-              <AddArticle />
             </div>
           }/>
         </Routes>
