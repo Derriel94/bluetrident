@@ -5,7 +5,7 @@ import {auth, logout} from "./../firebaseConfig.js"
 
 
 export default function NavBar() {
-	const [isLoggedIn, setIsLoggedIn] = useState(false);
+	const [isLoggedIn, setIsLoggedIn] = useState();
 	const [user, loading, error] = useAuthState(auth);
 	const navigate = useNavigate();
 
@@ -13,11 +13,17 @@ export default function NavBar() {
 		if (loading) return;
 		if (user) {
 			setIsLoggedIn(true);
-			navigate("/createblog");
+			reloadPage('createBlog');
+		} else {
+			setIsLoggedIn(false);
+			reloadPage('');
 		}
-	}, [user, loading, isLoggedIn]);
+	}, [user, loading, isLoggedIn,]);
 
-
+	const reloadPage = (location) => {
+ 		navigate(`/${location}`);
+ 	}
+		
 	return (
 		<div className="NavBar">
 			<div>
@@ -31,7 +37,7 @@ export default function NavBar() {
 			<div>
 				{isLoggedIn
 					?
-					<div className="navLink" onClick={logout}>Logout</div>
+					<div id="logout" className="navLink" onClick={logout}>Logout</div>
 					:
 					<Link className="navLink" to="/login" >Login</Link>
 				}

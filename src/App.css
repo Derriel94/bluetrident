@@ -5,6 +5,7 @@
 }
 .flextry {
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
 }
 
@@ -49,4 +50,7 @@
 }
 .Login > div {
   color: white;
+}
+#logout {
+  cursor: pointer;
 }

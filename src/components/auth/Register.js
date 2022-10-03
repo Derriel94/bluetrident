@@ -15,18 +15,40 @@ export default function Register() {
 	const [user, loading, error] = useAuthState(auth);
 	const navigate = useNavigate();
 
+	
+
 	const handleSubmit =async()=> {
-		await registerWithEmailAndPassword(name, email, password);
-		if (!name || !email || password) {
-			toast("Please enter all info!", {type: "error"});
-		}
-		
+		if (!name || !email || !password) {
+				toast("Please enter all info!", {type: "error"});
+				return;
+				}
+	
+				const response = await registerWithEmailAndPassword(name, email, password);	
+				console.log(response)
+				if (response) {	
+					return;
+				} else {
+					toast("Please use a real email address", {type: "error"});
+					setTimeout(()=>{
+						window.location.reload();
+					}, 2000)
+					
+					return;
+				}
+	
 	}
+
 
 	useEffect(() => {
 		if (loading) return;
-		if (user) navigate("/createblog");
+		if (user) {
+			reloadPage("createblog");
+		}
 	}, [user, loading]);
+
+	const reloadPage = (location) => {
+ 		navigate(`/${location}`);
+ 	}
 
 	return (
 		<div className="Register">

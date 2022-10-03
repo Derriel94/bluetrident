@@ -19,6 +19,7 @@ import {
   signOut,
 
 } from "firebase/auth";
+// import { toast } from 'react-toastify';
 
 const firebaseConfig = {
   apiKey: "AIzaSyCGqOTMpXCsOJ_JwdguHQ3qC1Xme9ujSrw",
@@ -51,7 +52,7 @@ const db = getFirestore(app);
         uid: user.uid,
         name: user.displayName,
         authProvider: "google",
-        email: user.emal,
+        email: user.email,
       });
     }
   } catch (err) {
@@ -86,10 +87,10 @@ const registerWithEmailAndPassword = async (name, email, password) => {
       authProvider: "local",
       email,
     });
-
+    return user;
   } catch (err) {
     console.error(err);
-    alert(err.message);
+    
   }
 
 };
