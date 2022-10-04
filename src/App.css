@@ -4,9 +4,21 @@
   background-color: lightskyblue;
 }
 .flextry {
+  margin-top: 50px;
   display: flex;
-  justify-content: center;
   flex-wrap: wrap;
+  justify-content: space-between;
+  /*width: 100%*/;
+}
+/*.flextry > div {
+  flex: 33.33%;
+}*/
+.sidePanel {
+  width: 250px;
+  background-color: whitesmoke;
+  height: 800px;
+  border: whitesmoke solid 2px;
+  border-radius: 20px;
 }
 
 .article {
@@ -18,6 +30,11 @@
   width: 450px;
   margin-top: 3px;
   padding: 3px;
+  text-align: center;
+}
+.article > img {
+  margin-left: auto;
+  margin-right: auto;
 }
 .createArticle {
   display: flex;
@@ -27,7 +44,7 @@
   height: 350px;
 }
 .NavBar {
-  border: whitesmoke solid 2px;
+  border: lightskyblue solid 2px;
   border-radius: 20px;
   background-color: whitesmoke;
   display: flex;
@@ -39,14 +56,28 @@
   margin-left: auto;
   margin-right: auto;
 }
+
+.logo {
+  height: 250px;
+  width: 250px;
+
+}
 .navLink {
   font-size: 1.5rem;
   color: lightskyblue;
   text-decoration: none;
   font-weight: bold;
 }
+.Register {
+  margin-left: auto;
+  margin-right: auto;
+}
 .Register > div {
   color: white;
+}
+.Login {
+  margin-right: auto;
+  margin-left: auto;
 }
 .Login > div {
   color: white;

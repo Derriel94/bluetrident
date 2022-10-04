@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
+ import React, { useState } from 'react'
 import { toast }from 'react-toastify';
 import { collection, addDoc, Timestamp } from 'firebase/firestore';
 import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
-
+import Articles from './Articles.js';
 
 import { storage, db } from './../firebaseConfig.js';
 
@@ -74,6 +74,7 @@ export default function AddArticles() {
 	};
 	
 	return (
+		<div>
 		<div className="createArticle">
 			<p style={{fontWeight: "bolder"}}> Create Blog </p>
 			<div>
@@ -96,6 +97,8 @@ export default function AddArticles() {
 			}
 			</div>
 			<button onClick={handlePublish}>publish</button>
+		</div>
+		<Articles />
 		</div>
 	)
 }

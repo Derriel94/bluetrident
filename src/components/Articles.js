@@ -26,7 +26,7 @@ export default function Articles() {
 				):(
 				articles.map(({id, title, description, imageUrl, createdAt}) =>{
 					return <div key={id} className="article">
-								<div>{title}</div>
+								<h1>{title}</h1>
 								<img src = {imageUrl} alt={title} style={{height: 180, width: 180}} />
 								<div>{description}</div>
 								<div>{createdAt.toDate().toDateString()}</div>

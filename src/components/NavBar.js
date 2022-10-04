@@ -28,8 +28,11 @@ export default function NavBar() {
 		<div className="NavBar">
 			<div>
 				<Link className="navLink" to="/">
-					<img src="./logo.png" alt="logo" style={{width: "150px", height: "150px" }} />
+					<img src="./logo.png" alt="logo" className="logo" />
 				</Link>
+			</div>
+			<div>
+				<Link className="navLink" to="/donate">Donate</Link>
 			</div>
 			<div>
 				<Link className="navLink" to="/register">Register</Link>
