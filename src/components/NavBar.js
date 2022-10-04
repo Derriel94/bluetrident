@@ -23,7 +23,7 @@ export default function NavBar() {
 	const reloadPage = (location) => {
  		navigate(`/${location}`);
  	}
-		
+	console.log(user)	
 	return (
 		<div className="NavBar">
 			<div>
@@ -38,9 +38,12 @@ export default function NavBar() {
 				<Link className="navLink" to="/register">Register</Link>
 			</div>
 			<div>
-				{isLoggedIn
+				{user
 					?
+					<div>
+					<div className="navLink">{user.name}</div>
 					<div id="logout" className="navLink" onClick={logout}>Logout</div>
+					</div>
 					:
 					<Link className="navLink" to="/login" >Login</Link>
 				}

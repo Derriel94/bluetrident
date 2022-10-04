@@ -10,6 +10,22 @@ export default function Login() {
 	const [user, loading, error] = useAuthState(auth);
 	const navigate = useNavigate();
 
+	const handleSubmit =async()=> {
+		if (!email || !password) {
+				toast("Please enter all info!", {type: "error"});
+				return;
+				}
+	
+				const response = await logInWithEmailAndPassword(email, password);
+				//if response is undefineed
+				if (response) {
+					console.log("error was caught");
+					toast("Wrong Email/Password combo", {type: "error"});
+				}	
+				
+	
+	}
+
 	useEffect(()=>{
 		if(loading) {
 			// toast("Loading Data", {type: "sucess"});
@@ -32,7 +48,7 @@ export default function Login() {
 				<p>Enter Password</p>
 				<input type="password" name="password" value={password} onChange={(e)=>setPassword(e.target.value)} />
 			</div>
-				<button type="submit" className="loginSubmit" onClick={logInWithEmailAndPassword}>Login</button>
+				<button type="submit" className="loginSubmit" onClick={handleSubmit}>Login</button>
 			</div>
 			<div>
 				<button className="" onClick={signInWithGoogle}>
