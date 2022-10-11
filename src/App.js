@@ -10,6 +10,9 @@ import Donate from './components/Donate.js';
 import './App.css';
 
 function App() {
+  // the state below is used to create a conditional to check
+  //wether we are on the main page or not.
+  const [mainPage, setMainPage] = useState(true);
   return (
     <div className="App">
       <Router>
@@ -25,7 +28,7 @@ function App() {
                 <AdComponent />
               </div>
               <div>
-                <Articles />
+                <Articles mainPage={mainPage}/>
               </div>
               <div>
               <AdComponent />

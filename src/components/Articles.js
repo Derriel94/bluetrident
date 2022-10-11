@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
+import { collection, onSnapshot, orderBy, query, setDoc, doc, updateDoc } from "firebase/firestore";
 import DeleteArticle from './DeleteArticle.js';
 import { db } from "../firebaseConfig.js";
+import { toast }from 'react-toastify';
 
-
-export default function Articles() {
+export default function Articles( {mainPage} ) {
 	const [articles, setArticles] = useState([]);
 	let [keyword, setKeyword] = useState('');
 	useEffect(()=>{
@@ -22,6 +22,21 @@ export default function Articles() {
 
 	const handleChange = (e) => {
 			setKeyword(e.target.value);	
+	}
+
+	const handleLike = async(id, likes) => {
+		console.log(likes);
+		let newLikes = ++likes;
+		console.log(newLikes);
+		const docRef = doc(db, "blogs", id);
+		console.log(docRef);
+		await updateDoc(docRef, {likes: newLikes});
+		
+		toast( "Thanks for Liking, dont forget to subscribe to our newsletter!" ,{type: "success"})
+	}
+
+	const handleComment = () => {
+		toast( "Remember to be kind, the server is always watching!" ,{type: "warning"})
 	}
 
 	return (
@@ -48,19 +63,33 @@ export default function Articles() {
 				articles.length === 0 ? (
 					<p>No articles found!</p>
 				):(
-					articles.filter((val)=>{
+					articles.filter((blog)=>{
 						if(keyword == "") {
-							return val
-						} else if (val.title.toLowerCase().includes(keyword.toLowerCase())) {
-							return val
+							return blog
+						} else if (blog.title.toLowerCase().includes(keyword.toLowerCase())) {
+							return blog
 						}
-					}).map(({id, title, description, imageUrl, createdAt}) =>{
+					}).map(({id, title, description, imageUrl, createdAt, likes}) =>{
 					return <div key={id} className="article">
 								<h1>{title}</h1>
 								<img src = {imageUrl} alt={title} style={{height: 180, width: 180}} />
 								<div>{description}</div>
 								<div>{createdAt.toDate().toDateString()}</div>
-								<DeleteArticle id={id} imageUrl={imageUrl} />
+								<div>{likes}</div>
+								{
+									mainPage ? <div></div> : <div><DeleteArticle id={id} imageUrl={imageUrl} /></div>
+								}
+								{
+									!mainPage 
+									? 
+									<div></div> 
+									: 
+									<div>
+										<button onClick={()=>handleLike(id, likes)}>Like</button>
+										<button onClick={handleComment} >Comment</button>
+									</div>
+								}
+								
 							</div>
 				})
 
