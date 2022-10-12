@@ -65,7 +65,11 @@ const db = getFirestore(app);
 // login with email
 const logInWithEmailAndPassword = async (email, password) => {
   try {
-     await signInWithEmailAndPassword(auth,email, password);
+     const res = await signInWithEmailAndPassword(auth,email, password);
+     const user = res.user;
+     return user;
+     // const q = query(collection(db, "users"), where("uid", "==", user.uid));
+     // const docs = await getDocs(q);
   } catch (err) {
     console.log(err);
     return err;
@@ -82,11 +86,12 @@ const registerWithEmailAndPassword = async (name, email, password) => {
     const user = res.user;
     await addDoc(collection(db, "users"), {
       uid: user.uid,
-      name,
+      displayName: name,
       authProvider: "local",
       email,
     });
-    return user;
+    return  user;
+  
   } catch (err) {
     console.error(err);
     

@@ -24,7 +24,7 @@ export default function Register() {
 				}
 	
 				const response = await registerWithEmailAndPassword(name, email, password);	
-				console.log(response)
+				
 				if (response) {	
 					return;
 				} else {

@@ -14,6 +14,7 @@ export default function AddArticles() {
 		image: "",
 		createdAt: Timestamp.now().toDate(),
 		likes: 0,
+		comments: [],
 	});
 	console.log(formData.createdAt)
 
@@ -60,6 +61,7 @@ export default function AddArticles() {
             imageUrl: url,
             createdAt: Timestamp.now().toDate(),
             likes: formData.likes,
+            comments: formData.comments,
           }
 
           )

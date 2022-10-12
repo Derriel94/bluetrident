@@ -7,11 +7,17 @@ import {auth, logout} from "./../firebaseConfig.js"
 export default function NavBar() {
 	const [isLoggedIn, setIsLoggedIn] = useState();
 	const [user, loading, error] = useAuthState(auth);
+	const [tempName, setTempName] = useState('');
 	const navigate = useNavigate();
 
 	useEffect(() => {
 		if (loading) return;
 		if (user) {
+					if(user.displayName) {
+					setTempName(user.displayName)
+					} else {
+					setTempName(user.name)
+					}
 			setIsLoggedIn(true);
 			reloadPage('createBlog');
 		} else {
@@ -20,10 +26,12 @@ export default function NavBar() {
 		}
 	}, [user, loading, isLoggedIn,]);
 
+
+
 	const reloadPage = (location) => {
  		navigate(`/${location}`);
  	}
-	console.log(user)	
+		
 	return (
 		<div className="NavBar">
 			<div>
@@ -32,7 +40,7 @@ export default function NavBar() {
 				</Link>
 			</div>
 			<div>
-				<Link className="navLink" to="/donate">Donate</Link>
+				<Link className="navLink" to="/newsletter">NewsLetter</Link>
 			</div>
 			<div>
 				<Link className="navLink" to="/register">Register</Link>
@@ -41,8 +49,8 @@ export default function NavBar() {
 				{user
 					?
 					<div>
-					<div className="navLink">{user.name}</div>
-					<div id="logout" className="navLink" onClick={logout}>Logout</div>
+					<div className="navLink">{tempName}</div>
+					<div className="navLink" onClick={logout}>Logout</div>
 					</div>
 					:
 					<Link className="navLink" to="/login" >Login</Link>

@@ -8,23 +8,28 @@ background: radial-gradient(circle, rgba(3,255,218,1) 0%, rgba(0,254,255,1) 35%,
   margin-top: 50px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
-  /*width: 100%*/;
+  justify-content: space-around;
+ 
 }
-/*.flextry > div {
-  flex: 33.33%;
+/*
+ //AD COMPONENT!
 }*/
 .sidePanel {
-  width: 250px;
+  width: 200px;
   background-color: whitesmoke;
   height: 800px;
   border: whitesmoke solid 2px;
   border-radius: 20px;
 }
 
+/*ARTICLES COMPONENT*/
+.articlesComponent {
+  text-align: center;
+}
+
 .article {
-  display: flex;
-  flex-direction: column;
+/*  display: flex;
+  flex-direction: column;*/
   border: whitesmoke solid 2px;
   border-radius: 20px;
   background-color: lightskyblue;
@@ -33,6 +38,15 @@ background: radial-gradient(circle, rgba(3,255,218,1) 0%, rgba(0,254,255,1) 35%,
   padding: 3px;
   text-align: center;
 }
+.article > #articleDesc {
+  background-color: white;
+}
+#comment {
+  background-color: white;
+  border: white solid 1px;
+  border-radius: 20px;
+}
+
 .article > img {
   margin-left: auto;
   margin-right: auto;
@@ -83,6 +97,99 @@ background: radial-gradient(circle, rgba(3,255,218,1) 0%, rgba(0,254,255,1) 35%,
 .Login > div {
   color: white;
 }
-#logout {
+.NavBar > div > div > div {
   cursor: pointer;
+}
+
+/*
+News letter component*/
+
+.newsLetterComponent {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  background: url(./../public/newsLetterBackground.png);
+  padding-bottom: 200px;
+}
+.newsLetterComponentAd {
+   margin-top: 100px;
+}
+
+.newsLetterComponentForm {
+  margin-top: 200px;
+}
+.newsLetterComponentForm > h1 {
+  margin-top: 300px;
+}
+
+.handleEmailSubmit {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.handleEmailSubmit > button {
+  width: 80px;
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.clearBox {
+  background-color: rgba(255, 255, 255, .4);
+  border: lightskyblue solid 3px;
+  border-radius: 20px;
+}
+
+
+/*FOOTER COMPONENT*/
+#footerComponent {
+  height: 100px;
+}
+#footerComponent > div {
+  background-color: lightskyblue;
+  border-radius: 0;
+}
+#footerComponent > div > div > .navLink > .logo {
+  height: auto;
+  width: 100px;
+  background-color: white;
+  border: white solid 3px;
+  border-radius: 20px;
+}
+
+#footerComponent > div > div > .navLink {
+  font-size: smaller;
+  color: white;
+}
+
+#footerComponent > div > div > div {
+  display: none;
+}
+
+.socialDiv {
+  display: flex;
+  justify-content: space-around;
+  background: radial-gradient(circle, rgba(3,255,218,1) 0%, rgba(0,254,255,1) 35%, rgba(0,212,255,0.8328518907563025) 100%);
+}
+.socialDiv > a > img {
+  height: 100px;
+  width: 100px;
+}
+
+#footerComponent .derrielcollins {
+  background-color: white;
+  text-align: center;
+}
+
+
+.border {
+  border: black solid 1px;
+  border-radius: 20px;
+}
+#left {
+  text-align: left;
+  margin-left: 6px;
 }

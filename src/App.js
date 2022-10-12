@@ -6,7 +6,8 @@ import Login from './components/auth/Login.js';
 import AddArticle from './components/AddArticle.js';
 import NavBar from './components/NavBar.js';
 import AdComponent from './components/AdComponent.js';
-import Donate from './components/Donate.js';
+import NewsLetter from './components/NewsLetter.js';
+import Footer from './components/Footer.js';
 import './App.css';
 
 function App() {
@@ -21,21 +22,16 @@ function App() {
           <Route path="/register" element ={<Register />}/>
           <Route path="/login" element={<Login />}/>
           <Route path="/createblog" element={<AddArticle />}/>
-          <Route path="/donate" element={<Donate />}/>
+          <Route path="/newsletter" element={<NewsLetter />}/>
           <Route path="/" element={
              <div className="flextry">
-              <div>
                 <AdComponent />
-              </div>
-              <div>
-                <Articles mainPage={mainPage}/>
-              </div>
-              <div>
-              <AdComponent />
-              </div>
+                <Articles mainPage={mainPage}/>    
+                <AdComponent />
             </div>
-          }/>
-        </Routes>     
+          }/>       
+        </Routes>
+        <Footer />   
       </Router>
     </div>
   );

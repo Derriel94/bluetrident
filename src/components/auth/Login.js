@@ -18,6 +18,7 @@ export default function Login() {
 	
 				const response = await logInWithEmailAndPassword(email, password);
 				//if response is undefineed
+				console.log(response)
 				if (response) {
 					console.log("error was caught");
 					toast("Wrong Email/Password combo", {type: "error"});
