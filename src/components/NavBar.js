@@ -1,37 +1,11 @@
-import React,{useEffect, useState} from 'react';
-import {Link,useNavigate}  from "react-router-dom";
-import { useAuthState } from "react-firebase-hooks/auth";
-import {auth, logout} from "./../firebaseConfig.js"
+import React from 'react';
+import {Link}  from "react-router-dom";
+
+import {logout} from "./../firebaseConfig.js"
 
 
-export default function NavBar() {
-	const [isLoggedIn, setIsLoggedIn] = useState();
-	const [user, loading, error] = useAuthState(auth);
-	const [tempName, setTempName] = useState('');
-	const navigate = useNavigate();
-
-	useEffect(() => {
-		if (loading) return;
-		if (user) {
-					if(user.displayName) {
-					setTempName(user.displayName)
-					} else {
-					setTempName(user.name)
-					}
-			setIsLoggedIn(true);
-			reloadPage('createBlog');
-		} else {
-			setIsLoggedIn(false);
-			reloadPage('');
-		}
-	}, [user, loading, isLoggedIn,]);
-
-
-
-	const reloadPage = (location) => {
- 		navigate(`/${location}`);
- 	}
-		
+export default function NavBar( {isLoggedIn, user, tempName} ) {
+	
 	return (
 		<div className="NavBar">
 			<div>
@@ -43,7 +17,7 @@ export default function NavBar() {
 				<Link className="navLink" to="/newsletter">NewsLetter</Link>
 			</div>
 			<div>
-				<Link className="navLink" to="/register">Register</Link>
+				<Link className="navLink" to="/gallery">Gallery</Link>
 			</div>
 			<div>
 				{user

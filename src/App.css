@@ -93,6 +93,7 @@ background: radial-gradient(circle, rgba(3,255,218,1) 0%, rgba(0,254,255,1) 35%,
 .Login {
   margin-right: auto;
   margin-left: auto;
+  text-align: center;
 }
 .Login > div {
   color: white;
@@ -192,4 +193,15 @@ News letter component*/
 #left {
   text-align: left;
   margin-left: 6px;
+}
+
+.googleLogin {
+  background-color: lightskyblue;
+  color: white;
+  border: 1px white solid;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 5px;
+  cursor: pointer;
+
 }

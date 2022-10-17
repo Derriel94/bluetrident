@@ -5,7 +5,7 @@ import { db, auth } from "../firebaseConfig.js";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { toast }from 'react-toastify';
 
-export default function Articles( {mainPage} ) {
+export default function Articles( {mainPage, isLoggedIn} ) {
 	const [articles, setArticles] = useState([]);
 	const [addComment, setAddComment] = useState(false);
 	const [comment, setComment] = useState("");
@@ -133,10 +133,10 @@ export default function Articles( {mainPage} ) {
 								<div>{createdAt.toDate().toDateString()}</div>
 								
 								{
-									mainPage ? <div></div> : <div><DeleteArticle id={id} imageUrl={imageUrl} /></div>
+									mainPage  ? <div></div> : <div><DeleteArticle id={id} imageUrl={imageUrl} /></div>
 								}
 								{
-									!mainPage 
+									!isLoggedIn
 									? 
 									<div></div> 
 									: 

@@ -8,6 +8,7 @@ export default function Login() {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [user, loading, error] = useAuthState(auth);
+	const [inputTyping, setInputTyping] = useState(false);
 	const navigate = useNavigate();
 
 	const handleSubmit =async()=> {
@@ -37,22 +38,28 @@ export default function Login() {
 		if (error) toast("something went wrong refresh page", {type: "error"});
 
 	}, [user, loading, error])
+	useEffect(()=> {
+		if(inputTyping) {
+
+		}
+	})
 
 	return (
 		<div className="Login">
 			<div>
 			<div>
 				<p>Enter Email</p>
-				<input type="email" name="email" value={email} onChange={(e)=>setEmail(e.target.value)} />
+				<input style={{backgroundColor: "lightskyblue"}} type="email" name="email" value={email} onChange={(e)=>{setInputTyping(true)
+																														setEmail(e.target.value)}} />
 			</div>
 			<div>
 				<p>Enter Password</p>
-				<input type="password" name="password" value={password} onChange={(e)=>setPassword(e.target.value)} />
+				<input style={{backgroundColor: "lightskyblue"}} type="password" name="password" value={password} onChange={(e)=>setPassword(e.target.value)} />
 			</div>
-				<button type="submit" className="loginSubmit" onClick={handleSubmit}>Login</button>
+				<button type="submit" className="googleLogin" onClick={handleSubmit}>Login</button>
 			</div>
 			<div>
-				<button className="" onClick={signInWithGoogle}>
+				<button className="googleLogin" onClick={signInWithGoogle}>
           			Login with Google
         		</button>
 			</div>
