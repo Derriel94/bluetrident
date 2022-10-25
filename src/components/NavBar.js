@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link}  from "react-router-dom";
 
-import {logout} from "./../firebaseConfig.js"
+import { logout} from "./../firebaseConfig.js"
 
 
 export default function NavBar( {isLoggedIn, user, tempName} ) {
@@ -27,7 +27,7 @@ export default function NavBar( {isLoggedIn, user, tempName} ) {
 					<div className="navLink" onClick={logout}>Logout</div>
 					</div>
 					:
-					<Link className="navLink" to="/login" >Login</Link>
+					<Link className="navLink" to="/login">Login</Link>
 				}
 				
 			</div>

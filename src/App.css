@@ -205,3 +205,15 @@ News letter component*/
   cursor: pointer;
 
 }
+
+/*Gallery*/
+
+.galleryComponent > div > img {
+  height: 300px;
+  width: 300px;
+}
+
+.gallery {
+  display: flex;
+  justify-content: space-around;
+}
