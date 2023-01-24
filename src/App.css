@@ -208,12 +208,15 @@ News letter component*/
 
 /*Gallery*/
 
-.galleryComponent > div > img {
-  height: 300px;
-  width: 300px;
+
+.galleryComponent {
+
+
+}
+#centerGallery {
+  align-content: center;
 }
 
-.gallery {
-  display: flex;
-  justify-content: space-around;
+.slideShow {
+  width: 800px;
 }

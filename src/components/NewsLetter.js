@@ -3,10 +3,7 @@ import AdComponent from './AdComponent.js';
 
 function NewsLetter() {
 	const [email, setEmail] = useState();
-	const handleEmailSubmit = async()=> {
-		
-		return;
-	}
+	
 	return (
 		<div className="newsLetterComponent">
 			<div className="newsLetterComponentAd">
@@ -16,11 +13,11 @@ function NewsLetter() {
 				<h1>Subscribe to our Newsletter to get
 					exclusive E-Book discounts and More!
 				</h1>
-				<div className="handleEmailSubmit">
-					<h2>Enter Your Email</h2>
-					<input type="email" name={email} value={email} />
-					<button onClick={handleEmailSubmit}>Subscribe</button>
-				</div>
+				<form className="contact-form" action="https://formsubmit.co/derrielcollins96@gmail.com" method="POST">
+					<h3 htmlFor="email-address">Enter Email</h3>
+              		<input onChange={(e)=>setEmail(e.value.target)} type="email" value={email} name="email-address"  id="email-address" />
+					<div><button type="submit" value="submit">Subscribe</button></div>
+				</form>
 			</div>
 			<div className="newsLetterComponentAd">
 				<AdComponent />

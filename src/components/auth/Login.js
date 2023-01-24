@@ -46,7 +46,7 @@ export default function Login() {
 
 	return (
 		<div className="Login">
-			<div>
+		{/*	<div>
 			<div>
 				<p>Enter Email</p>
 				<input style={{backgroundColor: "lightskyblue"}} type="email" name="email" value={email} onChange={(e)=>{setInputTyping(true)
@@ -57,15 +57,16 @@ export default function Login() {
 				<input style={{backgroundColor: "lightskyblue"}} type="password" name="password" value={password} onChange={(e)=>setPassword(e.target.value)} />
 			</div>
 				<button type="submit" className="googleLogin" onClick={handleSubmit}>Login</button>
-			</div>
+			</div>*/}
+			<img src="logo.png" style={{height: "350px", width: "350px"}} />
 			<div>
 				<button className="googleLogin" onClick={signInWithGoogle}>
           			Login with Google
         		</button>
 			</div>
-			<div>
+		{/*	<div>
 				<Link className="navLink" style={{color:"white"}} to="/register">Or Register.</Link>
-			</div>
+			</div>*/}
 		</div>
 	)
 }
