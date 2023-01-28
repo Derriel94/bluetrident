@@ -54,6 +54,8 @@ const db = getFirestore(app);
         authProvider: "google",
         email: user.email,
       });
+      console.log(user.displayName)
+      return user.displayName;
     }
   } catch (err) {
     console.error(err);

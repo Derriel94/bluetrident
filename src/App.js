@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Link, useNavigate } from "react-router-dom";
 import React, { useState, useEffect, useRef } from "react";
 import Articles from './components/Articles.js';
 import Register from './components/auth/Register.js';
@@ -20,15 +20,16 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [user, loading, error] = useAuthState(auth);
   const [tempName, setTempName] = useState('');
-
-
-  useEffect(() => {
+  const [mainUser, setMainUser] = useState();
+  
+      useEffect(() => {
     if (loading) return;
     if (user) {
           if(user.displayName) {
           setTempName(user.displayName)
-          } else {
-          setTempName(user.name)
+          } 
+          if (user.displayName === "Derriel Collins"){
+          setMainUser(true)
           }
       setIsLoggedIn(true);
      
@@ -44,7 +45,7 @@ function App() {
   return (
     <div className="App">
       <Router>
-      <NavBar user={user} tempName={tempName} isLoggedIn={isLoggedIn} />
+      <NavBar user={user} mainUser={mainUser} tempName={tempName} isLoggedIn={isLoggedIn} />
         <Routes>
           <Route path="/register" element ={<Register />}/>
           <Route path="/login" element={<Login />}/>

@@ -34,7 +34,7 @@ export default function Login() {
 			console.log("loading Data");
 			return;
 		}
-		if (user) navigate("/createblog");
+		if (user === "Derriel Collins") navigate("/createblog");
 		if (error) toast("something went wrong refresh page", {type: "error"});
 
 	}, [user, loading, error])
