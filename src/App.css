@@ -53,10 +53,18 @@ background: radial-gradient(circle, rgba(3,255,218,1) 0%, rgba(0,254,255,1) 35%,
 }
 .createArticle {
   display: flex;
+  align-items: center;
   flex-direction: column;
   border: whitesmoke solid 2px;
   border-radius: 20px;
   height: 350px;
+  width:450px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.createArticleList {
+  display: flex;
+  justify-content: center;
 }
 .NavBar {
   border: lightskyblue solid 2px;
@@ -211,12 +219,10 @@ News letter component*/
 
 .galleryComponent {
 
+}
+.slidediv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-}
-#centerGallery {
-  align-content: center;
-}
-
-.slideShow {
-  width: 800px;
-}

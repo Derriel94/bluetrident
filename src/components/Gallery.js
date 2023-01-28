@@ -48,15 +48,17 @@ export default function Gallery() {
 	// console.log(imgList.length)
 	return (
 		<div className="galleryComponent">
+			<div>
 			<Fade id="centerGallery">
 			{slideImages.map((slideImage, index)=> (
-				<div className="" key={index}>	
+				<div className="slidediv" key={index}>	
 					{/*<div style={{'backgroundImage': `url(${slideImage.url})`}}></div>*/}
-					<img src={slideImage.url} alt="slideshow" style={{width: 400, height: 400}} />
+					<img src={slideImage.url} alt="slideshow" style={{width: 600, height: 400}} />
 					<h3>{slideImage.caption}</h3>
 				</div>
 				))}
 			</Fade>
+			</div>
 		</div>
 	)
 }

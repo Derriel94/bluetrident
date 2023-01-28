@@ -79,7 +79,7 @@ export default function AddArticles() {
 	
 	return (
 		<div>
-		<div className="createArticle">
+			<div className="createArticle">
 			<p style={{fontWeight: "bolder"}}> Create Blog </p>
 			<div>
 			<p>Title</p>
@@ -91,7 +91,7 @@ export default function AddArticles() {
 			</div>
 			<div>
 			<p>Image</p>
-			<input type="file" name="image" accept="image/*" onChange={(e)=>handleImageChange(e)}/>
+			<input ty pe="file" name="image" accept="image/*" onChange={(e)=>handleImageChange(e)}/>
 			{
 				progress === 0 ? null : (
 					<div style={{backgroundColor:"blue", width: `${progress} %` }}>
@@ -100,9 +100,13 @@ export default function AddArticles() {
 					)
 			}
 			</div>
-			<button onClick={handlePublish}>publish</button>
-		</div>
-		<Articles />
+			<div>
+				<button onClick={handlePublish}>publish</button>
+			</div>
+			</div>
+			<div className="createArticleList">
+				<Articles />
+			</div>
 		</div>
 	)
 }
