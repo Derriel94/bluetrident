@@ -52,13 +52,7 @@ function App() {
           <Route path="/createblog" element={<AddArticle />}/>
           <Route path="/newsletter" element={<NewsLetter />}/>
           <Route path="/gallery" element ={<Gallery />}/>
-          <Route path="/" element={
-             <div className="flextry">
-                <AdComponent />
-                <Articles mainPage={mainPage} isLoggedIn={isLoggedIn}/>    
-                <AdComponent />
-            </div>
-          }/>       
+          <Route path="/" element={<Articles mainPage={mainPage} isLoggedIn={isLoggedIn}/>}/>       
         </Routes>
         <Footer />   
       </Router>

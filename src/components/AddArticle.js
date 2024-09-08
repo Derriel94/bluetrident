@@ -91,7 +91,7 @@ export default function AddArticles() {
 			</div>
 			<div>
 			<p>Image</p>
-			<input ty pe="file" name="image" accept="image/*" onChange={(e)=>handleImageChange(e)}/>
+			<input type="file" name="image" accept="image/*" onChange={(e)=>handleImageChange(e)}/>
 			{
 				progress === 0 ? null : (
 					<div style={{backgroundColor:"blue", width: `${progress} %` }}>

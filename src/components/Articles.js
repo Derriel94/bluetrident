@@ -13,15 +13,6 @@ export default function Articles( {mainPage, isLoggedIn} ) {
 	
 	const [user] = useAuthState(auth);
 	console.log(user)
-	// if (user != null) {
-	// 	if (user.name) {
-	// 		setCommenter(user.name)
-	// 	} else {
-	// 		setCommenter(user.displayName)
-	// 	}
-	// } else {
-
-	// }
 
 	const tempUser = {
 		displayName: " ",
